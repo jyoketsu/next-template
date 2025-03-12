@@ -30,3 +30,7 @@ UI 库：[shadcn/ui](https://ui.shadcn.com/)
 ## Icons
 
 [Lucide](https://lucide.dev/icons/)
+
+
+## todo
+const isDesktop = useMediaQuery("(min-width: 768px)") https://ui.shadcn.com/docs/components/drawer

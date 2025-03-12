@@ -1,3 +1,3 @@
 export default function Example() {
-  return <div>example</div>;
+  return <div className="h-[2000px]">example</div>;
 }
