@@ -31,6 +31,9 @@ UI 库：[shadcn/ui](https://ui.shadcn.com/)
 
 [Lucide](https://lucide.dev/icons/)
 
+## Fetching Data
+[/example/fetching-data/page.tsx](./src/app/(home)/example/fetching-data/page.tsx)
+
 
 ## todo
 const isDesktop = useMediaQuery("(min-width: 768px)") https://ui.shadcn.com/docs/components/drawer

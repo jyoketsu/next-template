@@ -14,6 +14,7 @@ export const exampleAsideItems = [
   { href: "/example/styling", label: "Styling" },
   { href: "/example/optimizations", label: "Optimizations" },
   { href: "/example/mdx", label: "MDX" },
+  { href: "/example/download", label: "Download" },
 ];
 
 export const uiExampleAsideItems = [

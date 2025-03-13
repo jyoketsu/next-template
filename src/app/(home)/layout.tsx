@@ -28,7 +28,7 @@ export default function HomeLayout({
       <main className="flex-1 px-3">{children}</main>
 
       <footer className="border-t py-6 px-6">
-        {/* <div className="flex justify-between flex-wrap">
+        <div className="flex justify-between flex-wrap">
           <Link className="mt-2" href="https://nextjs.org/" target="_blank">
             <Image
               className="dark:invert"
@@ -56,7 +56,7 @@ export default function HomeLayout({
               </div>
             ))}
           </div>
-        </div> */}
+        </div>
 
         <div className="mt-6 py-6 text-balance text-sm text-gray-500 text-left">
           <span>Built by </span>
