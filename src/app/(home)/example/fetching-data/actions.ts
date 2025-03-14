@@ -18,6 +18,7 @@ export async function serverActionsExample(formData: FormData) {
 
     // return await response.json();
   } catch (error) {
-    throw new Error("error");
+    console.error("Error processing form data:", error);
+    throw new Error("Failed to process form data");
   }
 }

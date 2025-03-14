@@ -22,12 +22,16 @@ export function ServerActions() {
       message: "Username must be at least 2 characters.",
     }),
     file: z
-      .custom<File>()
-      .refine((file) => !!file, "File is required")
+      .any()
+      .refine(
+        (val) => typeof window === "undefined" || val instanceof File,
+        "需要上传文件"
+      )
       .refine(
         (file) => file?.type?.startsWith("application/"),
         "Only Excel files are allowed"
-      ),
+      )
+      .nullable(),
   });
 
   // 1. Define your form.
