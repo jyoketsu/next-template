@@ -4,7 +4,7 @@ export function Animation() {
   return (
     <div className="w-full pb-6 border-b space-y-6">
       <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">
-        API Routes
+        Animation
       </h3>
       
       <LoaderCircle className="animate-spin text-sky-500" />

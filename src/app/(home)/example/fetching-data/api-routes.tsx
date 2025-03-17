@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
 
 export function ApiRoutes() {
   const handleSubmit = async () => {
@@ -14,6 +15,7 @@ export function ApiRoutes() {
     });
     const data = await res.json();
     console.log(data);
+    toast.success("submit success");
   };
 
   return (

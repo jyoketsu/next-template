@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { serverActionsExample } from "./actions";
+import { toast } from "sonner";
 
 export function ServerActions() {
   const formSchema = z.object({
@@ -43,7 +44,7 @@ export function ServerActions() {
   });
 
   // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  async function onSubmit(values: z.infer<typeof formSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     console.log(values);
@@ -51,7 +52,8 @@ export function ServerActions() {
     Object.entries(values).forEach(([key, value]) => {
       formData.append(key, value instanceof File ? value : String(value));
     });
-    serverActionsExample(formData);
+    await serverActionsExample(formData);
+    toast.success("submit success");
   }
 
   return (

@@ -68,7 +68,6 @@ export const uiExampleAsideItems = [
   { href: "/ui-example/table", label: "Table" },
   { href: "/ui-example/tabs", label: "Tabs" },
   { href: "/ui-example/textarea", label: "Textarea" },
-  { href: "/ui-example/toast", label: "Toast" },
   { href: "/ui-example/toggle", label: "Toggle" },
   { href: "/ui-example/toggle-group", label: "Toggle Group" },
   { href: "/ui-example/tooltip", label: "Tooltip" },
