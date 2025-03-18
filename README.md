@@ -1,5 +1,40 @@
 # Next Template
 
+A production-ready Next.js 15+ starter template with modern UI components, advanced features, and optimized tooling. Perfect for building performant web applications with TypeScript and App Router architecture.
+
+## Key Features
+
+✨ **Core Stack**
+- Next.js 15 with Turbopack
+- TypeScript 5 + React 19
+- Tailwind CSS
+- shadcn/ui component library
+
+🚀 **Main Features**
+- App Router architecture
+- MDX content support with Shiki syntax highlighting
+- Authentication-ready patterns
+- Internationalization (i18n) foundations
+- Server Actions & API routes examples
+- Optimized SEO and metadata
+- Built-in theme system
+
+📦 **UI Toolkit**
+- 40+ pre-configured shadcn/ui components
+- Customizable theme system with CSS variables
+- Animated components (Hover, Loading, etc)
+- Data Table with sorting/filtering
+- Form validation with React Hook Form
+- Sonner toast notifications
+
+⚙️ **Dev Experience**
+- Strict ESLint/TypeScript config
+- Pre-commit hooks
+- Docker production setup
+- CI/CD ready configuration
+- Component auto-imports
+- Utilities for path aliases
+
 ## Layouts and Pages
 
 ```
@@ -34,6 +69,5 @@ UI 库：[shadcn/ui](https://ui.shadcn.com/)
 ## Fetching Data
 [/example/fetching-data/page.tsx](./src/app/(home)/example/fetching-data/page.tsx)
 
-
-## todo
-const isDesktop = useMediaQuery("(min-width: 768px)") https://ui.shadcn.com/docs/components/drawer
+## MDX
+[/example/mdx/page.mdx](./src/app/(home)/example/mdx/page.mdx)
