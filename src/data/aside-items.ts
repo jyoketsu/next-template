@@ -35,7 +35,11 @@ export const uiExampleAsideItems = [
   { href: "/ui-example/alert", label: "Alert" },
   { href: "/ui-example/alert-dialog", label: "Alert Dialog" },
   { href: "/ui-example/aspect-ratio", label: "Aspect Ratio" },
-  { href: "/ui-example/avatar", label: "Avatar" },
+  {
+    href: "/ui-example/avatar",
+    label: "Avatar",
+    description: "An image element with a fallback for representing the user.",
+  },
   { href: "/ui-example/badge", label: "Badge" },
   { href: "/ui-example/breadcrumb", label: "Breadcrumb" },
   { href: "/ui-example/button", label: "Button" },

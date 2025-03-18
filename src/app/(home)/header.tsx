@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Github } from "lucide-react";
 import { Nav } from "./nav";
 import { MobileMenu } from "./mobile-menu";
+import UserButton from "./user-button";
 
 export function Header() {
   return (
@@ -37,7 +38,7 @@ export function Header() {
         <Nav className="hidden md:flex" />
         <i className="flex-1" />
 
-        <div className="flex items-center space-x-1">
+        <div className="flex items-center space-x-2">
           <Link
             href="https://github.com/jyoketsu/next-template"
             target="_blank"
@@ -47,6 +48,7 @@ export function Header() {
             </Button>
           </Link>
           <ModeToggle />
+          <UserButton />
         </div>
       </div>
     </header>
