@@ -19,7 +19,7 @@ jobs:
         env:
             AUTH_SECRET: ${{ secrets.AUTH_SECRET }} # 从GitHub Secrets获取密钥
         run: |
-          docker build --build-arg AUTH_SECRET=$AUTH_SECRET -t next-template:latest .  # 带参数构建Docker镜像
+          docker build --build-arg AUTH_SECRET=$AUTH_SECRET -t next-template:latest -f docker/Dockerfile . # 带参数构建Docker镜像
           docker save -o next-template.tar next-template:latest  # 将镜像导出为tar文件
 
       - name: Setup SSH
@@ -31,9 +31,9 @@ jobs:
 
       - name: Transfer via SCP
         run: |
-          scp next-template.tar root@47.102.193.24:/home/docker-images/
-          scp next-template.conf root@47.102.193.24:/etc/nginx/sites-available/
-          scp docker-compose.yml root@47.102.193.24:/home/projects/next-template/
+          scp docker/next-template.tar root@47.102.193.24:/home/docker-images/
+          scp docker/next-template.conf root@47.102.193.24:/etc/nginx/sites-available/
+          scp docker/docker-compose.yml root@47.102.193.24:/home/projects/next-template/
 
       - name: Deploy on Server
         run: |

@@ -13,7 +13,7 @@ export default function Page() {
           <Link
             key={index}
             href={item.href}
-            className="bg-gray-0 border-1 group block space-y-2 rounded-md p-6 pt-5 transition-shadow duration-300 hover:shadow-lg"
+            className="not-prose bg-gray-0 border-1 group block space-y-2 rounded-md p-6 pt-5 transition-shadow duration-300 hover:shadow-lg"
           >
             <h3 className="group-hover:text-active truncate text-lg font-medium leading-snug transition-colors duration-300">
               {item.label}
