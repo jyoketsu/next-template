@@ -16,8 +16,10 @@ jobs:
         uses: docker/setup-buildx-action@v2 # 配置Docker构建环境
 
       - name: Build Docker image
+        env:
+            AUTH_SECRET: ${{ secrets.AUTH_SECRET }} # 从GitHub Secrets获取密钥
         run: |
-          docker build -t next-template:latest .  # 带参数构建Docker镜像
+          docker build --build-arg AUTH_SECRET=$AUTH_SECRET -t next-template:latest .  # 带参数构建Docker镜像
           docker save -o next-template.tar next-template:latest  # 将镜像导出为tar文件
 
       - name: Setup SSH

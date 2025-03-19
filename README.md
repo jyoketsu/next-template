@@ -71,3 +71,20 @@ UI 库：[shadcn/ui](https://ui.shadcn.com/)
 
 ## MDX
 [/example/mdx/page.mdx](./src/app/(home)/example/mdx/page.mdx)
+
+## Authentication
+- [Login route](./src/app/(auth)/login/page.tsx)
+- [auth.config.ts](./src/auth.config.ts)
+- [auth.ts](./src/auth.ts)
+- [middleware.ts](./src/middleware.ts)
+- [LoginForm](./src/app/(auth)/login/LoginForm.tsx)
+- [Logout](./src/app/(home)/user-button.tsx)
+
+#### Setting up NextAuth.js
+```bash
+openssl rand -base64 32
+```
+Then, in your .env file, add your generated key to the AUTH_SECRET variable:
+```bash
+AUTH_SECRET=your-secret-key
+```

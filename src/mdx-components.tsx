@@ -10,6 +10,15 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         {children}
       </h1>
     ),
+    a: ({ children, ...props }) => (
+      <a
+        className="underline italic text-blue-500 hover:text-blue-400"
+        href={props.href}
+        target="_blank"
+      >
+        {children}
+      </a>
+    ),
 
     pre: async ({ children, ...props }) => {
       const code = children.props.children;

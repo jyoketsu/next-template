@@ -18,11 +18,20 @@ export const exampleAsideItems = [
   { href: "/example/styling", label: "Styling" },
   { href: "/example/optimizations", label: "Optimizations" },
   {
+    href: "/example/authentication",
+    label: "Authentication",
+    description: "Implement authentication in Next.js application.",
+  },
+  {
     href: "/example/mdx",
     label: "MDX",
     description: "Configure MDX and use it in Next.js apps.",
   },
-  { href: "/example/download", label: "Download" },
+  {
+    href: "/example/download",
+    label: "Download",
+    description: "Download files",
+  },
   { href: "/example/useContext", label: "useContext" },
 ];
 
