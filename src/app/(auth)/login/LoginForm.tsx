@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
+  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -72,6 +73,7 @@ export function LoginForm() {
               <FormControl>
                 <Input placeholder="Please input username" {...field} />
               </FormControl>
+              <FormDescription>admin</FormDescription>
               <FormMessage />
             </FormItem>
           )}
@@ -90,6 +92,7 @@ export function LoginForm() {
                   {...field}
                 />
               </FormControl>
+              <FormDescription>123456</FormDescription>
               <FormMessage />
             </FormItem>
           )}

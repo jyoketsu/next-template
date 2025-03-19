@@ -45,4 +45,6 @@ export const authConfig = {
     },
   },
   providers: [], // Add providers with an empty array for now
+  trustHost: true,
+  secret: "wmTvs/6aT7k+34WmIyoYBwb9BsV3cbjCbk5f0vPCkc8=",
 } satisfies NextAuthConfig;
