@@ -31,7 +31,7 @@ jobs:
 
       - name: Transfer via SCP
         run: |
-          scp docker/next-template.tar root@47.102.193.24:/home/docker-images/
+          scp next-template.tar root@47.102.193.24:/home/docker-images/
           scp docker/next-template.conf root@47.102.193.24:/etc/nginx/sites-available/
           scp docker/docker-compose.yml root@47.102.193.24:/home/projects/next-template/
 

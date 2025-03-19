@@ -79,8 +79,17 @@ export const uiExampleAsideItems = [
     label: "Dark Mode",
     description: "Adding dark mode to next app.",
   },
-  { href: "/ui-example/typography", label: "Typography", description: "to do" },
-  { href: "/ui-example/accordion", label: "Accordion", description: "to do" },
+  {
+    href: "/ui-example/typography",
+    label: "Typography",
+    description: "Styles for headings, paragraphs, lists...etc",
+  },
+  {
+    href: "/ui-example/accordion",
+    label: "Accordion",
+    description:
+      "A vertically stacked set of interactive headings that each reveal a section of content.",
+  },
   { href: "/ui-example/alert", label: "Alert", description: "to do" },
   {
     href: "/ui-example/alert-dialog",
