@@ -5,12 +5,14 @@ A production-ready Next.js 15+ starter template with modern UI components, advan
 ## Key Features
 
 ✨ **Core Stack**
+
 - Next.js 15 with Turbopack
 - TypeScript 5 + React 19
 - Tailwind CSS
 - shadcn/ui component library
 
 🚀 **Main Features**
+
 - App Router architecture
 - MDX content support with Shiki syntax highlighting
 - Authentication-ready patterns
@@ -20,6 +22,7 @@ A production-ready Next.js 15+ starter template with modern UI components, advan
 - Built-in theme system
 
 📦 **UI Toolkit**
+
 - 40+ pre-configured shadcn/ui components
 - Customizable theme system with CSS variables
 - Animated components (Hover, Loading, etc)
@@ -28,6 +31,7 @@ A production-ready Next.js 15+ starter template with modern UI components, advan
 - Sonner toast notifications
 
 ⚙️ **Dev Experience**
+
 - Strict ESLint/TypeScript config
 - Pre-commit hooks
 - Docker production setup
@@ -39,18 +43,29 @@ A production-ready Next.js 15+ starter template with modern UI components, advan
 
 ```
 src/app/
-  ├── (auth)/           # 认证相关页面
-  ├── (home)/        	# 首页
-  │   ├── example/      # 示例
-  │   │   ├── basic/    # 基础示例
+  ├── (auth)/                       # 认证相关页面 (Route Groups)
+  │   ├── login/                    # 登录
+  │   │   ├── page.tsx              # 登录页面
   │   │   └──.../
+  │   ├── register/                 # 注册
+  │   │   ├── page.tsx              # 注册页面
+  │   │   └──.../
+  │   └──.../
+  ├── (home)/        	            # 首页 (Route Groups)
+  │   ├── example/                  # 示例
+  │   │   ├── [slug]/page.tsx       # Dynamic route
+  │   │   ├── layout.tsx            # 示例 layout
+  │   │   ├── page.tsx              # 示例 pay
+  │   │   └── .../                  # 其他子目录
+  │   ├── layout.tsx                # 首页 layout
+  │   ├── page.tsx                  # 首页 page
   │   └── .../
-  └── ...
+  └── layout.tsx                    # 根 layout
 ```
 
 - 根 layout：[Layout](./src/app/layout.tsx)
-- Home layout：[HomeLayout](<./src/app/(home)/layout.tsx>)
-- 路由 layout：[ExampleLayout](<./src/app/(home)/example/layout.tsx>)
+- 首页 layout：[HomeLayout](<./src/app/(home)/layout.tsx>)
+- 示例 layout：[ExampleLayout](<./src/app/(home)/example/layout.tsx>)
 
 ## UI
 
@@ -67,24 +82,30 @@ UI 库：[shadcn/ui](https://ui.shadcn.com/)
 [Lucide](https://lucide.dev/icons/)
 
 ## Fetching Data
-[/example/fetching-data/page.tsx](./src/app/(home)/example/fetching-data/page.tsx)
+
+[/example/fetching-data/page.tsx](<./src/app/(home)/example/fetching-data/page.tsx>)
 
 ## MDX
-[/example/mdx/page.mdx](./src/app/(home)/example/mdx/page.mdx)
+
+[/example/mdx/page.mdx](<./src/app/(home)/example/mdx/page.mdx>)
 
 ## Authentication
-- [Login route](./src/app/(auth)/login/page.tsx)
+
+- [Login route](<./src/app/(auth)/login/page.tsx>)
 - [auth.config.ts](./src/auth.config.ts)
 - [auth.ts](./src/auth.ts)
 - [middleware.ts](./src/middleware.ts)
-- [LoginForm](./src/app/(auth)/login/LoginForm.tsx)
-- [Logout](./src/app/(home)/user-button.tsx)
+- [LoginForm](<./src/app/(auth)/login/LoginForm.tsx>)
+- [Logout](<./src/app/(home)/user-button.tsx>)
 
 #### Setting up NextAuth.js
+
 ```bash
 openssl rand -base64 32
 ```
+
 Then, in your .env file, add your generated key to the AUTH_SECRET variable:
+
 ```bash
 AUTH_SECRET=your-secret-key
 ```

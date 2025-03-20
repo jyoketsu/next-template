@@ -3,7 +3,7 @@ export const exampleAsideItems = [
   {
     href: "/example/layouts-and-pages",
     label: "Layouts and Pages",
-    description: "to do",
+    description: "Next.js uses file-system based routing, can use folders and files to define routes",
   },
   {
     href: "/example/linking-and-navigating",
