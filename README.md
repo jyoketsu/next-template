@@ -104,8 +104,9 @@ UI 库：[shadcn/ui](https://ui.shadcn.com/)
 openssl rand -base64 32
 ```
 
-Then, in your .env file, add your generated key to the AUTH_SECRET variable:
+Then, in your `auth.config.ts`, add your generated key to the secret field:
 
-```bash
-AUTH_SECRET=your-secret-key
+```ts
+trustHost: true,
+secret: your-secret-key
 ```

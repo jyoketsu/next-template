@@ -3,6 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { Loader2 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -15,10 +16,13 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { serverActionsExample } from "./actions";
+import { postFormData } from "@/lib/actions";
 import { toast } from "sonner";
+import { useState } from "react";
 
 export function ServerActions() {
+  const [loading, setLoading] = useState(false);
+
   const formSchema = z.object({
     username: z.string().min(2, {
       message: "Username must be at least 2 characters.",
@@ -53,15 +57,20 @@ export function ServerActions() {
     Object.entries(values).forEach(([key, value]) => {
       formData.append(key, value instanceof File ? value : String(value));
     });
-    await serverActionsExample(formData);
-    toast.success("submit success");
+
+    setLoading(true);
+    try {
+      await postFormData(formData);
+      toast.success("submit success");
+    } catch (error: any) {
+      toast.error(error.message);
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
-    <div className="w-full pb-6 border-b">
-      <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight mb-6">
-        Server Actions
-      </h3>
+    <div className="not-prose">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <FormField
@@ -94,9 +103,6 @@ export function ServerActions() {
                     onChange={(e) =>
                       field.onChange(e.target.files?.[0] || null)
                     }
-                    // onBlur={field.onBlur}
-                    // name={field.name}
-                    // ref={field.ref}
                   />
                 </FormControl>
                 <FormDescription>This is a file upload field.</FormDescription>
@@ -105,7 +111,10 @@ export function ServerActions() {
             )}
           />
 
-          <Button type="submit">Submit</Button>
+          <Button type="submit" disabled={loading}>
+            {loading && <Loader2 className="animate-spin" />}
+            Submit
+          </Button>
         </form>
       </Form>
     </div>

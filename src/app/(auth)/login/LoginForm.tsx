@@ -63,7 +63,7 @@ export function LoginForm() {
 
   return (
     <Form {...form}>
-      <form action={formAction} className="space-y-8">
+      <form className="space-y-8" action={formAction}>
         <FormField
           control={form.control}
           name="username"

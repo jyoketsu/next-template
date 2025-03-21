@@ -10,7 +10,7 @@ export default function ExampleLayout({
     <div className="w-full md:grid md:grid-cols-[240px_1fr] md:gap-10">
       <Aside items={exampleAsideItems} />
       <main className="py-6">
-        <div className="mx-auto w-full min-w-0 max-w-2xl">{children}</div>
+        <div className="mx-auto w-full h-full min-w-0 max-w-2xl">{children}</div>
       </main>
     </div>
   );

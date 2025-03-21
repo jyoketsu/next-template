@@ -3,23 +3,24 @@ export const exampleAsideItems = [
   {
     href: "/example/layouts-and-pages",
     label: "Layouts and Pages",
-    description: "Next.js uses file-system based routing, can use folders and files to define routes",
+    description:
+      "Next.js uses file-system based routing, can use folders and files to define routes",
   },
   {
     href: "/example/linking-and-navigating",
     label: "Linking and Navigating",
-    description: "to do",
+    description: "Navigation between pages in Next.js application.",
   },
   {
     href: "/example/error-handling",
     label: "Error Handling",
-    description: "to do",
+    description: "Handle errors in Next.js application.",
   },
-  { href: "/example/redirecting", label: "Redirecting", description: "to do" },
+  { href: "/example/redirecting", label: "Redirecting", description: "Different ways to handle redirects in Next.js." },
   {
     href: "/example/dynamic-routes",
     label: "Dynamic Routes",
-    description: "to do",
+    description: "Dynamic Routes can be used to programmatically generate route segments from dynamic data.",
   },
   {
     href: "/example/parallel-routes",
@@ -132,7 +133,12 @@ export const uiExampleAsideItems = [
     label: "Date Picker",
     description: "to do",
   },
-  { href: "/ui-example/dialog", label: "Dialog", description: "to do" },
+  {
+    href: "/ui-example/dialog",
+    label: "Dialog",
+    description:
+      "A window overlaid on either the primary window or another dialog window, rendering the content underneath inert.",
+  },
   { href: "/ui-example/drawer", label: "Drawer", description: "to do" },
   {
     href: "/ui-example/dropdown-menu",
@@ -142,7 +148,12 @@ export const uiExampleAsideItems = [
   },
   { href: "/ui-example/form", label: "Form", description: "to do" },
   { href: "/ui-example/hover-card", label: "Hover Card", description: "to do" },
-  { href: "/ui-example/input", label: "Input", description: "to do" },
+  {
+    href: "/ui-example/input",
+    label: "Input",
+    description:
+      "Displays a form input field or a component that looks like an input field.",
+  },
   { href: "/ui-example/input-otp", label: "Input OTP", description: "to do" },
   { href: "/ui-example/label", label: "Label", description: "to do" },
   { href: "/ui-example/menubar", label: "Menubar", description: "to do" },

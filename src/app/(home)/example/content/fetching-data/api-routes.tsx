@@ -1,10 +1,15 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { Loader2 } from "lucide-react";
+import { useState } from "react";
 import { toast } from "sonner";
 
 export function ApiRoutes() {
+  const [loading, setLoading] = useState(false);
+
   const handleSubmit = async () => {
+    setLoading(true);
     const res = await fetch("/api/api-routes-example", {
       method: "POST",
       headers: {
@@ -14,16 +19,19 @@ export function ApiRoutes() {
       body: JSON.stringify({ field: "test" }),
     });
     const data = await res.json();
+    setLoading(false);
     console.log(data);
-    toast.success("submit success");
+    if (data.ok) {
+      toast.success("submit success");
+    } else {
+      toast.error(data.message);
+    }
   };
 
   return (
-    <div className="w-full pb-6 border-b">
-      <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight mb-6">
-        API Routes
-      </h3>
-      <Button onClick={handleSubmit}>Submit</Button>
-    </div>
+    <Button disabled={loading} onClick={handleSubmit}>
+      {loading && <Loader2 className="animate-spin" />}
+      Submit
+    </Button>
   );
 }

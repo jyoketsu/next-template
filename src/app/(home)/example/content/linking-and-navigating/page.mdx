@@ -1,0 +1,113 @@
+### `<Link>` Component
+```javascript
+import Link from 'next/link'
+ 
+export default function Page() {
+  return <Link href="/dashboard">Dashboard</Link>
+}
+```
+
+### useRouter() hook
+```javascript
+'use client'
+ 
+import { useRouter } from 'next/navigation'
+ 
+export default function Page() {
+  const router = useRouter()
+ 
+  return (
+    <button type="button" onClick={() => router.push('/dashboard')}>
+      Dashboard
+    </button>
+  )
+}
+```
+
+### redirect function
+```javascript
+import { redirect } from 'next/navigation'
+ 
+async function fetchTeam(id: string) {
+  const res = await fetch('https://...')
+  if (!res.ok) return undefined
+  return res.json()
+}
+ 
+export default async function Profile({
+  params,
+}: {
+  params: Promise<{ id: string }>
+}) {
+  const { id } = await params
+  if (!id) {
+    redirect('/login')
+  }
+ 
+  const team = await fetchTeam(id)
+  if (!team) {
+    redirect('/join')
+  }
+ 
+  // ...
+}
+```
+
+### useSearchParams
+```javascript
+'use client'
+ 
+import { useSearchParams } from 'next/navigation'
+ 
+export default function SearchBar() {
+  const searchParams = useSearchParams()
+ 
+  const search = searchParams.get('search')
+ 
+  // URL -> `/dashboard?search=my-project`
+  // `search` -> 'my-project'
+}
+```
+```javascript
+const createQueryString = useCallback(
+	(name: string, value: string) => {
+		const params = new URLSearchParams(searchParams.toString())
+		params.set(name, value)
+
+		return params.toString()
+	},
+	[searchParams]
+)
+```
+```javascript
+const searchParams = useSearchParams()
+
+<Link href={`/register?${searchParams}`}>
+	<Button variant="link">Register</Button>
+</Link>
+```
+
+### useParams
+```javascript
+'use client'
+ 
+import { useParams } from 'next/navigation'
+ 
+export default function ExampleClientComponent() {
+  const params = useParams<{ tag: string; item: string }>()
+ 
+  // Route -> /shop/[tag]/[item]
+  // URL -> /shop/shoes/nike-air-max-97
+  // `params` -> { tag: 'shoes', item: 'nike-air-max-97' }
+  console.log(params)
+ 
+  return '...'
+}
+```
+
+### usePathname
+```javascript
+import { usePathname } from 'next/navigation'
+
+const pathname = usePathname()
+```

@@ -1,0 +1,49 @@
+[Docs](https://nextjs.org/docs/app/building-your-application/routing/redirecting)
+### redirect function
+redirect 函数允许将用户重定向到另一个 URL。您可以在以下场景调用 redirect：
+- Server Components
+- Route Handlers 
+- Server Actions
+
+该函数常用于数据变更（mutations）或事件处理后的跳转，以下是创建文章的典型场景：
+```javascript
+'use server'
+ 
+import { redirect } from 'next/navigation'
+import { revalidatePath } from 'next/cache'
+ 
+export async function createPost(id: string) {
+  try {
+    // Call database
+  } catch (error) {
+    // Handle errors
+  }
+ 
+  revalidatePath('/posts') // Update cached posts
+  redirect(`/post/${id}`) // Navigate to the new post page
+}
+```
+### permanentRedirect function
+permanentRedirect 函数允许将用户永久重定向到另一个 URL。您可以在以下场景调用 permanentRedirect：
+- Server Components
+- Route Handlers
+- Server Actions
+
+该函数常用于实体规范URL变更后的跳转，例如用户更改用户名后更新个人资料URL：
+```javascript
+'use server'
+ 
+import { permanentRedirect } from 'next/navigation'
+import { revalidateTag } from 'next/cache'
+ 
+export async function updateUsername(username: string, formData: FormData) {
+  try {
+    // Call database
+  } catch (error) {
+    // Handle errors
+  }
+ 
+  revalidateTag('username') // Update all references to the username
+  permanentRedirect(`/profile/${username}`) // Navigate to the new user profile
+}
+```
