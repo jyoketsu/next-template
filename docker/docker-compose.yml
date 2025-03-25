@@ -1,8 +1,13 @@
 services:
   next-template:
     image: next-template:latest
+    environment:
+      - DATABASE_URL=mysql://root:verysecret@mysql:3306/mydatabase
     ports:
       - "3001:3000"
+    depends_on:
+      - mysql
+    command: sh -c "while ! nc -z mysql 3306; do sleep 1; done && npx prisma migrate deploy && node server.js"
     restart: unless-stopped
 
   mysql:

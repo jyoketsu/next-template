@@ -50,6 +50,7 @@ FROM base AS runner
 WORKDIR /app
 
 ENV NODE_ENV=production
+
 # Uncomment the following line in case you want to disable telemetry during runtime.
 # ENV NEXT_TELEMETRY_DISABLED=1
 
@@ -62,9 +63,12 @@ COPY --from=builder /app/public ./public
 # https://nextjs.org/docs/advanced-features/output-file-tracing
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+# 复制prisma文件夹
+COPY --from=builder --chown=nextjs:nodejs /app/prisma ./prisma
+
 
 # 生产环境执行数据库迁移
-RUN npx prisma migrate deploy
+# RUN npx prisma migrate deploy
 
 USER nextjs
 

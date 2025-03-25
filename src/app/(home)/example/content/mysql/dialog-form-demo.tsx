@@ -47,7 +47,7 @@ export function DialogFormDemo({
     }
   };
 
-  const [errorMessage, formAction, isPending] = useActionState(save, undefined);
+  const [errorMessage, formAction, isPending] = useActionState(save, "");
 
   const formSchema = z.object({
     title: z
@@ -105,7 +105,7 @@ export function DialogFormDemo({
   }, [errorMessage]);
 
   useEffect(() => {
-    if (!isPending && !errorMessage) {
+    if (!isPending && errorMessage === undefined) {
       onClose();
       toast.success(`${id ? "Post updated" : "Post created"} successfully!`);
     }
