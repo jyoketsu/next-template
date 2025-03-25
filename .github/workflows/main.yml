@@ -17,9 +17,10 @@ jobs:
 
       - name: Build Docker image
         env:
-            AUTH_SECRET: ${{ secrets.AUTH_SECRET }} # 从GitHub Secrets获取密钥
+          AUTH_SECRET: ${{ secrets.AUTH_SECRET }} # 从GitHub Secrets获取密钥
+          DATABASE_URL: ${{ secrets.DATABASE_URL }} # 数据库连接字符串
         run: |
-          docker build --build-arg AUTH_SECRET=$AUTH_SECRET -t next-template:latest -f docker/Dockerfile . # 带参数构建Docker镜像
+          docker build --build-arg AUTH_SECRET=$AUTH_SECRET --build-arg DATABASE_URL=$DATABASE_URL -t next-template:latest -f docker/Dockerfile . # 带参数构建Docker镜像
           docker save -o next-template.tar next-template:latest  # 将镜像导出为tar文件
 
       - name: Setup SSH

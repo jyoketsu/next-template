@@ -61,6 +61,11 @@ export const exampleAsideItems = [
     description: "Configure MDX and use it in Next.js apps.",
   },
   {
+    href: "/example/mysql",
+    label: "MySQL",
+    description: "Use Prisma to connect to a PlanetScale MySQL database",
+  },
+  {
     href: "/example/download",
     label: "Download",
     description: "Download files",

@@ -110,3 +110,14 @@ Then, in your `auth.config.ts`, add your generated key to the secret field:
 trustHost: true,
 secret: your-secret-key
 ```
+
+#### MySQL (Prisma)
+- [.env](./.env)
+- [prisma/schema.prisma](./prisma/schema.prisma)
+- [prisma.ts](./src/lib/prisma.ts)
+- [mysql-demo.ts](./src//lib/actions/demo/mysql-demo.ts)
+```bash
+rm -rf node_modules/.prisma
+npx prisma migrate dev --name init
+npx prisma generate
+```

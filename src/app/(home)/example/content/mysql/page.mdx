@@ -1,0 +1,105 @@
+import { Demo } from './demo'
+
+[Prisma/docs](https://www.prisma.io/docs/getting-started/setup-prisma/start-from-scratch/relational-databases-typescript-mysql)
+
+## Demo Preview
+<Demo />
+
+## Get started
+### 1. 安装与初始化：
+```bash
+npm install @prisma/client
+npx prisma init
+```
+### 2.​配置数据库连接  
+.env
+```
+DATABASE_URL="mysql://myuser:secret@127.0.0.1:3306/mydatabase"
+```
+prisma/schema.prisma
+```javascript
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+```
+### 3.定义数据模型：
+```javascript
+model Post {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  title     String   @db.VarChar(255)
+  content   String?
+  published Boolean  @default(false)
+  author    User     @relation(fields: [authorId], references: [id])
+  authorId  Int
+}
+
+model Profile {
+  id     Int     @id @default(autoincrement())
+  bio    String?
+  user   User    @relation(fields: [userId], references: [id])
+  userId Int     @unique
+}
+
+model User {
+  id      Int      @id @default(autoincrement())
+  email   String   @unique
+  name    String?
+  posts   Post[]
+  profile Profile?
+}
+```
+
+### 4.执行数据库迁移(map data model to the database schema)
+```bash
+npx prisma migrate dev --name init
+```
+### 5.使用Prisma Client生成TypeScript客户端
+修改 schema.prisma 后需要执行
+```bash
+npx prisma generate
+```
+### 6.使用Prisma Client进行CRUD操作
+```javascript
+import { PrismaClient } from '@prisma/client'
+const prisma = new PrismaClient()
+
+// 查询所有用户
+const users = await prisma.user.findMany()
+
+// 查询单个用户
+const user = await prisma.user.findUnique({
+  where: {
+    id: 1,
+  },
+})
+
+// 创建用户
+const newUser = await prisma.user.create({
+	data: {
+		username: 'alice',
+		password: 'password123',
+		role: Role.ADMIN,
+		avatar: 'https://example.com/avatar.jpg',
+	},
+})
+
+// 更新用户
+const updatedUser = await prisma.user.update({
+	where: {
+		id: 1,
+	},
+	data: {
+		role: Role.ADMIN,
+	},
+})
+
+// 删除用户
+const deletedUser = await prisma.user.delete({
+	where: {
+		id: 1,
+	},
+})
+```

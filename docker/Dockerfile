@@ -32,6 +32,12 @@ COPY . .
 ARG AUTH_SECRET
 ENV AUTH_SECRET=${AUTH_SECRET}
 
+ARG DATABASE_URL
+ENV DATABASE_URL=${DATABASE_URL}
+
+# Prisma生成客户端
+RUN npx prisma generate
+
 RUN \
   if [ -f yarn.lock ]; then yarn run build2; \
   elif [ -f package-lock.json ]; then npm run build2; \
@@ -56,6 +62,9 @@ COPY --from=builder /app/public ./public
 # https://nextjs.org/docs/advanced-features/output-file-tracing
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+
+# 生产环境执行数据库迁移
+RUN npx prisma migrate deploy
 
 USER nextjs
 
