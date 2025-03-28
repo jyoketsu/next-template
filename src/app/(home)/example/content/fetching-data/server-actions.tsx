@@ -72,7 +72,7 @@ export function ServerActions() {
   return (
     <div className="not-prose">
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+        <form className="space-y-8" onSubmit={form.handleSubmit(onSubmit)}>
           <FormField
             control={form.control}
             name="username"

@@ -67,7 +67,7 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 COPY --from=builder --chown=nextjs:nodejs /app/prisma ./prisma
 
 
-# 生产环境执行数据库迁移
+# 生产环境执行数据库迁移 (这里注释掉，是因为需要启动mysql后才能执行迁移，所以需要在docker-compose中添加command执行)
 # RUN npx prisma migrate deploy
 
 USER nextjs

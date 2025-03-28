@@ -25,7 +25,7 @@ import {
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { useActionState, useEffect, useState } from "react";
+import { startTransition, useActionState, useEffect, useState } from "react";
 import { addPost, editPost, getPost } from "@/lib/actions/demo/mysql-demo";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
@@ -55,7 +55,7 @@ export function DialogFormDemo({
       .min(2, {
         message: "Title must be at least 2 characters.",
       })
-      .max(50, {
+      .max(10, {
         message: "Title must be at most 50 characters.",
       }),
     content: z
@@ -63,7 +63,7 @@ export function DialogFormDemo({
       .min(6, {
         message: "Content must be at least 2 characters.",
       })
-      .max(100, {
+      .max(50, {
         message: "Content must be at most 100 characters.",
       }),
   });
@@ -75,6 +75,15 @@ export function DialogFormDemo({
       content: "",
     },
   });
+
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    const formData = new FormData();
+    formData.append("title", values.title);
+    formData.append("content", values.content);
+    startTransition(() => {
+      formAction(formData);
+    });
+  }
 
   useEffect(() => {
     if (id && isOpen) {
@@ -124,7 +133,7 @@ export function DialogFormDemo({
         </DialogHeader>
 
         <Form {...form}>
-          <form className="space-y-8" action={formAction}>
+          <form className="space-y-8" onSubmit={form.handleSubmit(onSubmit)}>
             <FormField
               control={form.control}
               name="title"

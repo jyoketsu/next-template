@@ -16,11 +16,16 @@ export const exampleAsideItems = [
     label: "Error Handling",
     description: "Handle errors in Next.js application.",
   },
-  { href: "/example/redirecting", label: "Redirecting", description: "Different ways to handle redirects in Next.js." },
+  {
+    href: "/example/redirecting",
+    label: "Redirecting",
+    description: "Different ways to handle redirects in Next.js.",
+  },
   {
     href: "/example/dynamic-routes",
     label: "Dynamic Routes",
-    description: "Dynamic Routes can be used to programmatically generate route segments from dynamic data.",
+    description:
+      "Dynamic Routes can be used to programmatically generate route segments from dynamic data.",
   },
   {
     href: "/example/parallel-routes",
@@ -151,7 +156,11 @@ export const uiExampleAsideItems = [
     description:
       "Displays a menu to the user — such as a set of actions or functions — triggered by a button.",
   },
-  { href: "/ui-example/form", label: "Form", description: "to do" },
+  {
+    href: "/ui-example/form",
+    label: "Form",
+    description: "Building forms with React Hook Form and Zod.",
+  },
   { href: "/ui-example/hover-card", label: "Hover Card", description: "to do" },
   {
     href: "/ui-example/input",

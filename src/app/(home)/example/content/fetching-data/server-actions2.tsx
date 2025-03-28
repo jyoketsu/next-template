@@ -9,7 +9,6 @@ import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -17,9 +16,8 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { createPost, postFormData } from "@/lib/actions";
-import { toast } from "sonner";
-import { useActionState, useState } from "react";
+import { createPost } from "@/lib/actions";
+import { startTransition, useActionState } from "react";
 
 const initialState = {
   message: "",
@@ -45,10 +43,19 @@ export function ServerActions2() {
     },
   });
 
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    const formData = new FormData();
+    formData.append("title", values.title);
+    formData.append("content", values.content);
+    startTransition(() => {
+      formAction(formData);
+    });
+  }
+
   return (
     <div className="not-prose">
       <Form {...form}>
-        <form className="space-y-8" action={formAction}>
+        <form className="space-y-8" onSubmit={form.handleSubmit(onSubmit)}>
           <FormField
             control={form.control}
             name="title"
