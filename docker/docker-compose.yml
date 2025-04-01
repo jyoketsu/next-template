@@ -8,24 +8,30 @@ services:
     depends_on:
       - mysql
     # 持续检查MySQL服务是否可用；可用后执行Prisma数据库迁移；启动应用程序
-    # command: sh -c "while ! nc -z mysql 3306; do sleep 1; done && npx prisma migrate deploy && node server.js"
+    command: sh -c "while ! nc -z mysql 3306; do sleep 1; done && npx prisma migrate deploy && node server.js"
     restart: unless-stopped
+    networks:
+      - xujie_template_default
 
-  mysql:
-    image: 'mysql:latest'
-    environment:
-      - 'MYSQL_DATABASE=mydatabase'
-      - 'MYSQL_PASSWORD=secret'
-      - 'MYSQL_ROOT_PASSWORD=verysecret'
-      - 'MYSQL_USER=myuser'
-      - 'TZ=Asia/Shanghai'
-      - 'MYSQL_CHARACTER_SET_SERVER=utf8mb4'
-      - 'MYSQL_COLLATION_SERVER=utf8mb4_unicode_ci'
-    ports:
-      - '3306:3306'
-    volumes:
-      - next_mysql_data:/var/lib/mysql # 使用命名卷挂载 MySQL 数据目录
-    restart: unless-stopped
+# 因为共用spring-boot-template中的mysql，下面的注释掉
+#   mysql:
+#     image: 'mysql:latest'
+#     environment:
+#       - 'MYSQL_DATABASE=mydatabase'
+#       - 'MYSQL_PASSWORD=secret'
+#       - 'MYSQL_ROOT_PASSWORD=verysecret'
+#       - 'MYSQL_USER=myuser'
+#       - 'TZ=Asia/Shanghai'
+#       - 'MYSQL_CHARACTER_SET_SERVER=utf8mb4'
+#       - 'MYSQL_COLLATION_SERVER=utf8mb4_unicode_ci'
+#     volumes:
+#       - next_mysql_data:/var/lib/mysql # 使用命名卷挂载 MySQL 数据目录
+#     restart: unless-stopped
 
-volumes:
-  next_mysql_data: {} # 声明命名卷
+# volumes:
+#   next_mysql_data: {} # 声明命名卷
+
+# 加入到后端网络，docker network ls 查看
+networks:
+  xujie_template_default: # 网络名称
+    external: true        # 外部网络，表示使用已存在的 Docker 网络，需提前创建 docker network create xujie_template_default
