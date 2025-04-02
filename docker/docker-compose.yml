@@ -1,12 +1,17 @@
 services:
   next-template:
     image: next-template:latest
+    # 由于外部mysql中的数据库为mydatabase，所以需要先创建数据库
+    # docker exec -it spring-boot-template-mysql mysql -u root -pverysecret -e "CREATE DATABASE IF NOT EXISTS next_template_database CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
+    # ​验证数据库是否创建成功
+    # docker exec -it spring-boot-template-mysql mysql -u root -pverysecret -e "SHOW DATABASES LIKE 'next_template_database';"
     environment:
-      - DATABASE_URL=mysql://root:verysecret@mysql:3306/mydatabase
+      - DATABASE_URL=mysql://root:verysecret@mysql:3306/next_template_database
     ports:
       - "3001:3000"
-    depends_on:
-      - mysql
+    # MySQL服务已经位于外部网络，移除depends_on
+    # depends_on:
+    #   - mysql
     # 持续检查MySQL服务是否可用；可用后执行Prisma数据库迁移；启动应用程序
     command: sh -c "while ! nc -z mysql 3306; do sleep 1; done && npx prisma migrate deploy && node server.js"
     restart: unless-stopped
@@ -17,7 +22,7 @@ services:
 #   mysql:
 #     image: 'mysql:latest'
 #     environment:
-#       - 'MYSQL_DATABASE=mydatabase'
+#       - 'MYSQL_DATABASE=next_template_database'
 #       - 'MYSQL_PASSWORD=secret'
 #       - 'MYSQL_ROOT_PASSWORD=verysecret'
 #       - 'MYSQL_USER=myuser'
@@ -33,5 +38,6 @@ services:
 
 # 加入到后端网络，docker network ls 查看
 networks:
-  xujie_template_default: # 网络名称
-    external: true        # 外部网络，表示使用已存在的 Docker 网络，需提前创建 docker network create xujie_template_default
+  xujie_template_default:
+    # 网络名称
+    external: true # 外部网络，表示使用已存在的 Docker 网络，需提前创建 docker network create xujie_template_default
