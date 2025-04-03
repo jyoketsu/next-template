@@ -13,7 +13,7 @@ services:
     # depends_on:
     #   - mysql
     # 持续检查MySQL服务是否可用；可用后执行Prisma数据库迁移；启动应用程序
-    command: sh -c "while ! nc -z mysql 3306; do sleep 1; done && npx prisma migrate deploy && node server.js"
+    # command: sh -c "while ! nc -z mysql 3306; do sleep 1; done && npx prisma migrate deploy && node server.js"
     restart: unless-stopped
     networks:
       - xujie_template_default

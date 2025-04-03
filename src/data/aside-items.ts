@@ -30,14 +30,19 @@ export const exampleAsideItems = [
   {
     href: "/example/parallel-routes",
     label: "Parallel Routes",
-    description: "to do",
+    description: "Parallel Routes allows you to simultaneously or conditionally render one or more pages within the same layout. ",
   },
   {
-    href: "/example/Routing",
+    href: "/example/intercepting-routes",
     label: "Intercepting Routes",
-    description: "to do",
+    description: "Intercepting routes allows you to load a route from another part of your application within the current layout. ",
   },
-  { href: "/example/middleware", label: "Middleware", description: "to do" },
+  {
+    href: "/example/middleware",
+    label: "Middleware",
+    description:
+      "Middleware allows you to run code before a request is completed. Then, based on the incoming request, you can modify the response by rewriting, redirecting, modifying the request or response headers, or responding directly.",
+  },
   {
     href: "/example/internationalization",
     label: "Internationalization",
