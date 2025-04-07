@@ -4,8 +4,8 @@ export default function Layout({
   slot2,
 }: Readonly<{
   children: React.ReactNode;
-  slot1?: React.ReactNode;
-  slot2?: React.ReactNode;
+  slot1: React.ReactNode;
+  slot2: React.ReactNode;
 }>) {
   return (
     <div className="w-full h-50 md:h-100 grid grid-cols-3 gap-3">
