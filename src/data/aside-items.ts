@@ -30,12 +30,14 @@ export const exampleAsideItems = [
   {
     href: "/example/parallel-routes",
     label: "Parallel Routes",
-    description: "Parallel Routes allows you to simultaneously or conditionally render one or more pages within the same layout. ",
+    description:
+      "Parallel Routes allows you to simultaneously or conditionally render one or more pages within the same layout. ",
   },
   {
     href: "/example/intercepting-routes",
     label: "Intercepting Routes",
-    description: "Intercepting routes allows you to load a route from another part of your application within the current layout. ",
+    description:
+      "Intercepting routes allows you to load a route from another part of your application within the current layout. ",
   },
   {
     href: "/example/middleware",
@@ -52,13 +54,6 @@ export const exampleAsideItems = [
     href: "/example/fetching-data",
     label: "Fetching data",
     description: "Start fetching data and streaming content in application.",
-  },
-  { href: "/example/rendering", label: "Rendering", description: "to do" },
-  { href: "/example/styling", label: "Styling", description: "to do" },
-  {
-    href: "/example/optimizations",
-    label: "Optimizations",
-    description: "to do",
   },
   {
     href: "/example/authentication",
@@ -80,7 +75,18 @@ export const exampleAsideItems = [
     label: "Download",
     description: "Download files",
   },
-  { href: "/example/useContext", label: "useContext", description: "to do" },
+  {
+    href: "/example/useReducer",
+    label: "useReducer",
+    description:
+      "useReducer is a React Hook that lets you add a reducer to your component.",
+  },
+  {
+    href: "/example/useContext",
+    label: "useContext",
+    description:
+      "useContext is a React Hook that lets you read and subscribe to context from your component.",
+  },
 ];
 
 export const uiExampleAsideItems = [

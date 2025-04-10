@@ -112,15 +112,18 @@ secret: your-secret-key
 ```
 
 ## Form
-- [Form](./src/app/(home)/example/content/fetching-data/server-actions2.tsx)
+
+- [Form](<./src/app/(home)/example/content/fetching-data/server-actions2.tsx>)
 - [LoginForm](<./src/app/(auth)/login/LoginForm.tsx>)
 
 ## MySQL (Prisma)
+
 - [.env](./.env)
 - [prisma/schema.prisma](./prisma/schema.prisma)
 - [prisma.ts](./src/lib/prisma.ts)
 - [mysql-demo.ts](./src//lib/actions/demo/mysql-demo.ts)
 - [Dockerfile](./docker/Dockerfile)
+
 ```bash
 rm -rf node_modules/.prisma
 npx prisma migrate dev --name init
@@ -128,4 +131,13 @@ npx prisma generate
 ```
 
 ## Middleware
+
 - [middleware.ts](./src/middleware.ts)
+
+## Parallel Routes
+
+- [layout.tsx](<./src/app/(home)/example/parallel-routes-demo/(home)/layout.tsx>)
+
+## Intercepting Routes
+
+- [layout.tsx](<./src/app/(home)/example/intercepting-routes-demo/layout.tsx>)
