@@ -45,5 +45,5 @@ jobs:
             cd /home/projects/next-template/
             docker compose down && docker compose up -d
             docker image prune -f  # 清理无用镜像
-            rm -f next-template.tar  # 新增清理tar文件
+            rm -f /home/docker-images/next-template.tar  # 新增清理tar文件
           EOF
