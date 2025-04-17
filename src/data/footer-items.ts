@@ -1,10 +1,11 @@
 export const moreItems = [
-  { href: "https://github.com/jyoketsu/vue-template", label: "vue-template" },
-  { href: "https://github.com/jyoketsu/nuxt-template", label: "nuxt-template" },
   {
     href: "https://github.com/jyoketsu/spring-boot-template",
     label: "spring-boot-template",
   },
+  { href: "https://github.com/jyoketsu/vue-template", label: "vue-template" },
+  { href: "https://github.com/jyoketsu/nuxt-template", label: "nuxt-template" },
+  { href: "https://github.com/jyoketsu/uni-app-template", label: "uni-app-template" },
 ];
 
 export const aboutItems = [

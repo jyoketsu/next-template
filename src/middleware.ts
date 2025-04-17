@@ -2,7 +2,13 @@ import NextAuth from "next-auth";
 import { authConfig } from "@/auth.config";
 import { NextRequest, NextResponse } from "next/server";
 
-export default NextAuth(authConfig).auth;
+// export default NextAuth(authConfig).auth;
+/**
+ * 在 Next.js 中，当同时使用 NextAuth 中间件和自定义中间件时，需要手动合并两者。
+ * 注释掉之前的export default NextAuth(authConfig).auth;
+ * 添加 return authMiddleware(request);
+ */
+const authMiddleware = NextAuth(authConfig).auth;
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
@@ -13,6 +19,9 @@ export function middleware(request: NextRequest) {
   if (request.nextUrl.pathname.startsWith("/middleware-rewrite")) {
     return NextResponse.rewrite(new URL("/example", request.url));
   }
+
+  // @ts-ignore 执行 NextAuth 中间件
+  return authMiddleware(request);
 }
 
 export const config = {
