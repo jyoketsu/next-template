@@ -26,13 +26,13 @@ export default async function UserButton() {
           <Avatar>
             <AvatarImage
               src={session.user.avatar}
-              alt={session.user.username}
+              alt={session.user.name || ''}
             />
-            <AvatarFallback>{session.user.username}</AvatarFallback>
+            <AvatarFallback>{session.user.name || ''}</AvatarFallback>
           </Avatar>
         </DropdownMenuTrigger>
         <DropdownMenuContent>
-          <DropdownMenuLabel>{session.user.username}</DropdownMenuLabel>
+          <DropdownMenuLabel>{session.user.name || ''}</DropdownMenuLabel>
           <DropdownMenuSeparator />
 
           <DropdownMenuItem>

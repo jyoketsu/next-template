@@ -1,4 +1,4 @@
-import { getAllPosts } from "@/lib/actions/demo/mysql-demo";
+import { getAllPosts } from "@/lib/actions/demo/prisma-demo";
 import { TableData } from "./table-data";
 
 export async function TableDemo() {

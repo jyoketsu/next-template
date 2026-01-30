@@ -73,7 +73,7 @@ export function LoginForm() {
               <FormControl>
                 <Input placeholder="Please input username" {...field} />
               </FormControl>
-              <FormDescription>admin</FormDescription>
+              <FormDescription>jyoketsu</FormDescription>
               <FormMessage />
             </FormItem>
           )}

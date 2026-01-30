@@ -2,9 +2,11 @@ import "next-auth";
 import { DefaultSession } from "next-auth";
 
 export type User = {
-  username: string;
-  password: string;
+  id: number;
+  email: string;
+  name: string;
   avatar: string;
+  password: string;
 };
 
 declare module "next-auth" {

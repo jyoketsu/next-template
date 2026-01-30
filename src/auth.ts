@@ -3,16 +3,17 @@ import Credentials from "next-auth/providers/credentials";
 import { authConfig } from "@/auth.config";
 import { z } from "zod";
 import type { User } from "@/lib/definitions";
+import bcrypt from 'bcrypt';
+import { prisma } from "@/lib/prisma";
 
 async function getUser(username: string): Promise<User | undefined> {
   try {
-    // const user = await sql<User[]>`SELECT * FROM users WHERE email=${email}`;
-    // return user[0];
-    return {
-      username: "admin",
-      password: "123456",
-      avatar: "https://img.picgo.net/2025/01/15/206319672c0ab23c4658d4e9.jpg",
-    };
+    const user = await prisma.user.findUnique({
+      where: {
+        name: username,
+      },
+    });
+    return user as User | undefined;
   } catch (error) {
     console.error("Failed to fetch user:", error);
     throw new Error("Failed to fetch user.");
@@ -34,14 +35,9 @@ export const { auth, signIn, signOut } = NextAuth({
           const user = await getUser(username);
           if (!user) return null;
 
-          // const passwordsMatch = await bcrypt.compare(password, user.password);
-          // if (passwordsMatch) return user;
-          if (username === user.username && password === user.password) {
-            return user;
-          }
+          const passwordsMatch = await bcrypt.compare(password, user.password);
+          if (passwordsMatch) return user;
         }
-
-        console.log("Invalid credentials");
         return null;
       },
     }),

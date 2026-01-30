@@ -66,9 +66,9 @@ export const exampleAsideItems = [
     description: "Configure MDX and use it in Next.js apps.",
   },
   {
-    href: "/example/mysql",
-    label: "MySQL",
-    description: "Use Prisma to connect to a PlanetScale MySQL database",
+    href: "/example/prisma-postgres",
+    label: "Prisma Postgres",
+    description: "Prisma Postgres is a fully managed PostgreSQL database that scales to zero and integrates smoothly with both Prisma ORM and Prisma Studio.",
   },
   {
     href: "/example/download",

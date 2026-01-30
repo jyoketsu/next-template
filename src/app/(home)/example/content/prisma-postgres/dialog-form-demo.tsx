@@ -8,15 +8,12 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -25,8 +22,8 @@ import {
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { startTransition, useActionState, useEffect, useState } from "react";
-import { addPost, editPost, getPost } from "@/lib/actions/demo/mysql-demo";
+import { startTransition, useActionState, useEffect } from "react";
+import { addPost, editPost, getPost } from "@/lib/actions/demo/prisma-demo";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
 
@@ -122,7 +119,7 @@ export function DialogFormDemo({
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="sm:max-w-106.25">
         <DialogHeader>
           <DialogTitle>{id ? "Edit Post" : "Create New Post"}</DialogTitle>
           <DialogDescription>

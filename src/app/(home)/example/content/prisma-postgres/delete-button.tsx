@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { deletePost } from "@/lib/actions/demo/mysql-demo";
+import { deletePost } from "@/lib/actions/demo/prisma-demo";
 import { TrashIcon } from "lucide-react";
 
 export function DeleteButton({ id }: { id: number }) {
