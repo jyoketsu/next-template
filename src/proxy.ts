@@ -10,7 +10,7 @@ import { NextRequest, NextResponse } from "next/server";
  */
 const authMiddleware = NextAuth(authConfig).auth;
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
   console.log("---pathname---", pathname);
   if (request.nextUrl.pathname.startsWith("/middleware-redirect")) {

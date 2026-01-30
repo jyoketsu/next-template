@@ -14,6 +14,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import { Loader2 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
 import { useActionState, useEffect } from "react";
@@ -45,15 +46,6 @@ export function LoginForm() {
       password: "",
     },
   });
-
-  // 2. Define a submit handler.
-  async function onSubmit(values: z.infer<typeof formSchema>) {
-    const formData = new FormData();
-    formData.append("username", values.username);
-    formData.append("password", values.password);
-
-    formAction(formData);
-  }
 
   useEffect(() => {
     if (errorMessage) {
@@ -98,7 +90,8 @@ export function LoginForm() {
           )}
         />
 
-        <Button className="w-full" type="submit">
+        <Button className="w-full" type="submit" disabled={isPending}>
+          {isPending ? <Loader2 className="animate-spin" /> : null}
           Login
         </Button>
       </form>
