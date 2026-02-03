@@ -11,7 +11,7 @@ export default function Home() {
           bg-clip-text：将背景（如渐变、图片等）裁剪到文字的形状上，从而实现文字背景效果。
           text-transparent：使文字透明，以显示背景渐变。 
         */}
-        <h1 className="text-6xl text-center font-bold tracking-tighter bg-gradient-to-r from-primary to-primary/40 bg-clip-text text-transparent leading-16 p-6">
+        <h1 className="text-6xl text-center font-bold tracking-tighter bg-linear-to-r from-primary to-primary/40 bg-clip-text text-transparent leading-16 p-6">
           Next.js Template
         </h1>
         <div className="text-muted-foreground text-base md:text-xl py-10 px-8">
@@ -23,7 +23,7 @@ export default function Home() {
           </p>
         </div>
 
-        <h2 className="mt-20 text-3xl text-center font-semibold tracking-tight transition-colors p-6 bg-gradient-to-r from-primary to-primary/40 bg-clip-text text-transparent">
+        <h2 className="mt-20 text-3xl text-center font-semibold tracking-tight transition-colors p-6 bg-linear-to-r from-primary to-primary/40 bg-clip-text text-transparent">
           Core Stack
         </h2>
         <div className="my-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -44,7 +44,7 @@ export default function Home() {
                   priority
                 />
               </div>
-              <div className="text-primary text-xl font-semibold h-[30px] flex items-center mb-3 space-x-2">
+              <div className="text-primary text-xl font-semibold h-7.5 flex items-center mb-3 space-x-2">
                 <span>{stack.name}</span>
                 <ArrowUpRight className="text-muted-foreground" />
               </div>

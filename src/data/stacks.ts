@@ -40,17 +40,9 @@ export const stacks = [
       "TypeScript is a strongly typed programming language that builds on JavaScript, giving you better tooling at any scale.",
   },
   {
-    name: "MySQL",
-    logo: "mysql.svg",
-    logoClass: "",
-    link: "https://www.mysql.com/",
-    description:
-      "MySQL is an open source RDBMS that uses SQL to create and manage databases.",
-  },
-  {
     name: "Prisma",
     logo: "prisma.svg",
-    logoClass: "",
+    logoClass: "dark:invert",
     link: "https://www.prisma.io/",
     description:
       "Next-generation ORM for Node.js & TypeScript | PostgreSQL, MySQL, MariaDB, SQL Server, SQLite, MongoDB and CockroachDB.",
