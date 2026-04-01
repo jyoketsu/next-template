@@ -4,55 +4,48 @@ export const stacks = [
     logo: "react.svg",
     logoClass: "",
     link: "https://react.dev/",
-    description:
-      "React is the library for web and native user interfaces. Build user interfaces out of individual pieces called components written in JavaScript.",
+    descriptionKey: "react",
   },
   {
     name: "Next.js",
     logo: "next.svg",
     logoClass: "dark:invert scale-50",
     link: "https://nextjs.org/",
-    description:
-      "Next.js by Vercel is the full-stack React framework for the web.",
+    descriptionKey: "nextjs",
   },
   {
     name: "Tailwind CSS",
     logo: "tailwind.svg",
     logoClass: "scale-105",
     link: "https://tailwindcss.com/",
-    description:
-      "Tailwind CSS is a utility-first CSS framework for rapidly building modern websites without ever leaving your HTML.",
+    descriptionKey: "tailwind",
   },
   {
     name: "shadcn/ui",
     logo: "shadcn.svg",
     logoClass: "dark:invert",
     link: "https://ui.shadcn.com/",
-    description:
-      "A set of beautifully-designed, accessible components and a code distribution platform. Works with your favorite frameworks. Open Source. Open Code.",
+    descriptionKey: "shadcn",
   },
   {
     name: "TypeScript",
     logo: "typescript.svg",
     logoClass: "",
     link: "https://www.typescriptlang.org/",
-    description:
-      "TypeScript is a strongly typed programming language that builds on JavaScript, giving you better tooling at any scale.",
+    descriptionKey: "typescript",
   },
   {
     name: "Prisma",
     logo: "prisma.svg",
     logoClass: "dark:invert",
     link: "https://www.prisma.io/",
-    description:
-      "Next-generation ORM for Node.js & TypeScript | PostgreSQL, MySQL, MariaDB, SQL Server, SQLite, MongoDB and CockroachDB.",
+    descriptionKey: "prisma",
   },
   {
     name: "Docker",
     logo: "docker.svg",
     logoClass: "",
     link: "https://www.docker.com/",
-    description:
-      "Docker is a platform designed to help developers build, share, and run container applications. We handle the tedious setup, so you can focus on the code.",
+    descriptionKey: "docker",
   },
 ];

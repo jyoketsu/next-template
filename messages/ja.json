@@ -1,0 +1,43 @@
+{
+    "HomePage": {
+        "title": "Next.js テンプレート",
+        "description": "モダンな UI コンポーネント、高度な機能、最適化されたツールを備えた、本番環境対応の Next.js 15+ スターターテンプレート。TypeScript と App Router アーキテクチャを使用した高性能な Web アプリケーションの構築に最適です。",
+        "coreStack": "コアスタック",
+        "stacks": {
+            "react": "React は、Web およびネイティブユーザーインターフェイスのためのライブラリです。JavaScript で記述されたコンポーネントと呼ばれる個々のピースからユーザーインターフェイスを構築します。",
+            "nextjs": "Next.js は Vercel によるフルスタック React フレームワークです。",
+            "tailwind": "Tailwind CSS は、HTML を離れることなく最新の Web サイトを迅速に構築するためのユーティリティファーストの CSS フレームワークです。",
+            "shadcn": "美しくデザインされたアクセシブルなコンポーネントとコード配布プラットフォームのセット。お気に入りのフレームワークで動作します。オープンソース。オープンコード。",
+            "typescript": "TypeScript は JavaScript をベースに構築された強く型付けされたプログラミング言語で、あらゆる規模でより優れたツールを提供します。",
+            "prisma": "Node.js と TypeScript 用の次世代 ORM | PostgreSQL、MySQL、MariaDB、SQL Server、SQLite、MongoDB、CockroachDB をサポート。",
+            "docker": "Docker は、開発者がコンテナアプリケーションを構築、共有、実行するのを支援するために設計されたプラットフォームです。面倒なセットアップは私たちが処理するので、コードに集中できます。"
+        }
+    },
+    "Nav": {
+        "home": "ホーム",
+        "examples": "例",
+        "uiExamples": "UI 例",
+        "needAuthorized": "認証が必要"
+    },
+    "Footer": {
+        "resources": "リソース",
+        "more": "もっと",
+        "about": "について",
+        "builtBy": "構築者",
+        "sourceCode": "ソースコードは"
+    },
+    "UserButton": {
+        "login": "ログイン",
+        "logout": "ログアウト"
+    },
+    "LoginPage": {
+        "title": "ログイン",
+        "username": "ユーザー名",
+        "password": "パスワード",
+        "usernamePlaceholder": "ユーザー名を入力してください",
+        "passwordPlaceholder": "パスワードを入力してください",
+        "submit": "ログイン",
+        "usernameValidation": "ユーザー名は2文字以上である必要があります。",
+        "passwordValidation": "パスワードは2文字以上である必要があります。"
+    }
+}

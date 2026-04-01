@@ -1,6 +1,6 @@
 export const navItems = [
-  { href: "/", label: "Home" },
-  { href: "/example", label: "Examples" },
-  { href: "/ui-example", label: "UI Examples" },
-  { href: "/need-authorized", label: "Need authorized" },
+  { href: "/", label: "home" },
+  { href: "/example", label: "examples" },
+  { href: "/ui-example", label: "uiExamples" },
+  { href: "/need-authorized", label: "needAuthorized" },
 ];

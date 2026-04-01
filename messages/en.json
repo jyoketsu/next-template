@@ -1,0 +1,43 @@
+{
+    "HomePage": {
+        "title": "Next.js Template",
+        "description": "A production-ready Next.js 15+ starter template with modern UI components, advanced features, and optimized tooling. Perfect for building performant web applications with TypeScript and App Router architecture.",
+        "coreStack": "Core Stack",
+        "stacks": {
+            "react": "React is the library for web and native user interfaces. Build user interfaces out of individual pieces called components written in JavaScript.",
+            "nextjs": "Next.js by Vercel is the full-stack React framework for the web.",
+            "tailwind": "Tailwind CSS is a utility-first CSS framework for rapidly building modern websites without ever leaving your HTML.",
+            "shadcn": "A set of beautifully-designed, accessible components and a code distribution platform. Works with your favorite frameworks. Open Source. Open Code.",
+            "typescript": "TypeScript is a strongly typed programming language that builds on JavaScript, giving you better tooling at any scale.",
+            "prisma": "Next-generation ORM for Node.js & TypeScript | PostgreSQL, MySQL, MariaDB, SQL Server, SQLite, MongoDB and CockroachDB.",
+            "docker": "Docker is a platform designed to help developers build, share, and run container applications. We handle the tedious setup, so you can focus on the code."
+        }
+    },
+    "Nav": {
+        "home": "Home",
+        "examples": "Examples",
+        "uiExamples": "UI Examples",
+        "needAuthorized": "Need authorized"
+    },
+    "Footer": {
+        "resources": "Resources",
+        "more": "More",
+        "about": "About",
+        "builtBy": "Built by",
+        "sourceCode": "The source code is available on"
+    },
+    "UserButton": {
+        "login": "Login",
+        "logout": "Logout"
+    },
+    "LoginPage": {
+        "title": "Login",
+        "username": "Username",
+        "password": "Password",
+        "usernamePlaceholder": "Please input username",
+        "passwordPlaceholder": "Please input password",
+        "submit": "Login",
+        "usernameValidation": "Username must be at least 2 characters.",
+        "passwordValidation": "Password must be at least 2 characters."
+    }
+}

@@ -9,6 +9,8 @@ export function Aside({
   items,
 }: Readonly<{ items: { href: string; label: string }[] }>) {
   const pathname = usePathname();
+  // 移除 locale 前缀
+  const pathnameWithoutLocale = pathname.replace(/^\/(en|zh|ja)/, '');
 
   return (
     <div className="w-full h-[calc(100vh-3.5rem)] border-r hidden md:flex flex-col sticky top-13 pr-3 py-6 overflow-auto">
@@ -16,7 +18,7 @@ export function Aside({
         <Link key={item.href} href={item.href}>
           <Button
             className={`w-full justify-start ${
-              isExactActive(item.href, pathname)
+              isExactActive(item.href, pathnameWithoutLocale)
                 ? "text-active hover:text-active font-medium"
                 : ""
             }`}

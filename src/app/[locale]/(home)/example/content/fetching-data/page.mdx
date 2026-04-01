@@ -1,0 +1,33 @@
+import { ApiRoutes } from "./api-routes";
+import { ServerActions } from "./server-actions";
+import { ServerActions2 } from "./server-actions2";
+import { Demo } from '@/app/[locale]/(home)/example/content/prisma-postgres/demo';
+
+### Server Actions  
+---
+
+#### form onSubmit
+```javascript
+import { postFormData } from "@/lib/actions";
+```
+<ServerActions />
+
+---
+
+#### useActionState  
+<ServerActions2 />
+
+---
+
+### API Routes
+```bash
+/src/app/api/api-routes-example/route.ts
+```
+<ApiRoutes />
+
+---
+
+### Prisma Postgres example
+
+[Prisma Postgres](/example/prisma-postgres)
+<Demo />
