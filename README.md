@@ -130,9 +130,16 @@ npx prisma migrate dev --name init
 npx prisma generate
 ```
 
-## Middleware
+## Proxy
 
-- [middleware.ts](./src/middleware.ts)
+- [middleware.ts](./src/proxy.ts)
+
+## Internationalization
+- [routing.ts](./src/i18n/routing.ts)
+- [request.ts](./src/i18n/request.ts)
+- [next.config.ts](./next.config.ts)
+- [proxy.ts](./src/proxy.ts)
+- [en.json](./messages/en.json)
 
 ## Parallel Routes
 
