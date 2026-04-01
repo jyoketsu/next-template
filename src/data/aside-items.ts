@@ -48,7 +48,7 @@ export const exampleAsideItems = [
   {
     href: "/example/internationalization",
     label: "Internationalization",
-    description: "to do",
+    description: "Internationalization for Next.js.",
   },
   {
     href: "/example/fetching-data",

@@ -1,3 +1,62 @@
-# Internationalization
+This template uses [next-intl](https://next-intl.dev/docs/getting-started) for internationalization support.
 
-This page is under construction. (to do)
+## Supported Languages
+
+- English (default, no prefix)
+- 简体中文 (Chinese Simplified, `/zh`)
+- 日本語 (Japanese, `/ja`)
+
+## Key Configuration Files
+
+### Routing Configuration
+- [src/i18n/routing.ts](/src/i18n/routing.ts) - Defines supported locales and routing behavior
+- [src/i18n/request.ts](/src/i18n/request.ts) - Handles locale detection and message loading
+
+### Middleware Integration
+- [src/proxy.ts](/src/proxy.ts) - Integrates next-intl with NextAuth middleware
+
+### Next.js Configuration
+- [next.config.ts](/next.config.ts) - Configures next-intl plugin
+
+### Translation Files
+- [messages/en.json](/messages/en.json) - English translations
+- [messages/zh.json](/messages/zh.json) - Chinese translations
+- [messages/ja.json](/messages/ja.json) - Japanese translations
+
+## Usage Example
+
+Use translations in your page components or anywhere else:
+
+```tsx
+import { useTranslations } from 'next-intl';
+
+export default function HomePage() {
+  const t = useTranslations('HomePage');
+  return <h1>{t('title')}</h1>;
+}
+```
+
+In case of async components, you can use the awaitable `getTranslations` function instead:
+
+```tsx
+import { getTranslations } from 'next-intl/server';
+
+export default async function HomePage() {
+  const t = await getTranslations('HomePage');
+  return <h1>{t('title')}</h1>;
+}
+```
+
+### MDX Internationalization
+
+For MDX files, create separate files for each language:
+
+- `page.mdx` - Default (English)
+- `page.zh.mdx` - Chinese version
+- `page.ja.mdx` - Japanese version
+
+The page will automatically load the appropriate MDX file based on the current locale.
+
+## Learn More
+
+Visit the [next-intl documentation](https://next-intl.dev/docs/getting-started) for detailed guides and API reference.

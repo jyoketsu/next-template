@@ -21,9 +21,15 @@ export function LocaleSwitcher() {
   const router = useRouter();
 
   const switchLocale = (newLocale: string) => {
-    const segments = pathname.split("/");
-    segments[1] = newLocale;
-    router.push(segments.join("/"));
+    // 移除当前 locale 前缀
+    let pathnameWithoutLocale = pathname.replace(/^\/(zh|ja)/, '');
+
+    // 确保路径以 / 开头
+    if (!pathnameWithoutLocale.startsWith('/')) {
+      pathnameWithoutLocale = '/' + pathnameWithoutLocale;
+    }
+
+    router.push(`/${newLocale}${pathnameWithoutLocale}`);
   };
 
   return (

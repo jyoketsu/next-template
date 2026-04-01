@@ -1,0 +1,62 @@
+このテンプレートは [next-intl](https://next-intl.dev/docs/getting-started) を使用して国際化をサポートしています。
+
+## サポートされている言語
+
+- English（英語、デフォルト、プレフィックスなし）
+- 简体中文（簡体字中国語、`/zh`）
+- 日本語（`/ja`）
+
+## 主要な設定ファイル
+
+### ルーティング設定
+- [src/i18n/routing.ts](/src/i18n/routing.ts) - サポートされるロケールとルーティング動作を定義
+- [src/i18n/request.ts](/src/i18n/request.ts) - ロケール検出とメッセージ読み込みを処理
+
+### ミドルウェア統合
+- [src/proxy.ts](/src/proxy.ts) - next-intl を NextAuth ミドルウェアと統合
+
+### Next.js 設定
+- [next.config.ts](/next.config.ts) - next-intl プラグインを設定
+
+### 翻訳ファイル
+- [messages/en.json](/messages/en.json) - 英語翻訳
+- [messages/zh.json](/messages/zh.json) - 中国語翻訳
+- [messages/ja.json](/messages/ja.json) - 日本語翻訳
+
+## 使用例
+
+ページコンポーネントやその他の場所で翻訳を使用します：
+
+```tsx
+import { useTranslations } from 'next-intl';
+
+export default function HomePage() {
+  const t = useTranslations('HomePage');
+  return <h1>{t('title')}</h1>;
+}
+```
+
+非同期コンポーネントの場合は、await 可能な `getTranslations` 関数を使用できます：
+
+```tsx
+import { getTranslations } from 'next-intl/server';
+
+export default async function HomePage() {
+  const t = await getTranslations('HomePage');
+  return <h1>{t('title')}</h1>;
+}
+```
+
+### MDX の国際化
+
+MDX ファイルの場合、各言語用に個別のファイルを作成します：
+
+- `page.mdx` - デフォルト（英語）
+- `page.zh.mdx` - 中国語版
+- `page.ja.mdx` - 日本語版
+
+ページは現在のロケールに基づいて適切な MDX ファイルを自動的に読み込みます。
+
+## 詳細情報
+
+詳細なガイドと API リファレンスについては、[next-intl ドキュメント](https://next-intl.dev/docs/getting-started) をご覧ください。

@@ -1,0 +1,62 @@
+本模板使用 [next-intl](https://next-intl.dev/docs/getting-started) 实现国际化支持。
+
+## 支持的语言
+
+- English（英文，默认，无前缀）
+- 简体中文（`/zh`）
+- 日本語（日语，`/ja`）
+
+## 关键配置文件
+
+### 路由配置
+- [src/i18n/routing.ts](/src/i18n/routing.ts) - 定义支持的语言和路由行为
+- [src/i18n/request.ts](/src/i18n/request.ts) - 处理语言检测和消息加载
+
+### 中间件集成
+- [src/proxy.ts](/src/proxy.ts) - 将 next-intl 与 NextAuth 中间件集成
+
+### Next.js 配置
+- [next.config.ts](/next.config.ts) - 配置 next-intl 插件
+
+### 翻译文件
+- [messages/en.json](/messages/en.json) - 英文翻译
+- [messages/zh.json](/messages/zh.json) - 中文翻译
+- [messages/ja.json](/messages/ja.json) - 日文翻译
+
+## 使用示例
+
+在页面组件或任何地方使用翻译：
+
+```tsx
+import { useTranslations } from 'next-intl';
+
+export default function HomePage() {
+  const t = useTranslations('HomePage');
+  return <h1>{t('title')}</h1>;
+}
+```
+
+对于异步组件，可以使用可等待的 `getTranslations` 函数：
+
+```tsx
+import { getTranslations } from 'next-intl/server';
+
+export default async function HomePage() {
+  const t = await getTranslations('HomePage');
+  return <h1>{t('title')}</h1>;
+}
+```
+
+### MDX 多语言
+
+对于 MDX 文件，为每种语言创建单独的文件：
+
+- `page.mdx` - 默认（英文）
+- `page.zh.mdx` - 中文版本
+- `page.ja.mdx` - 日文版本
+
+页面会根据当前语言自动加载相应的 MDX 文件。
+
+## 了解更多
+
+访问 [next-intl 文档](https://next-intl.dev/docs/getting-started) 获取详细指南和 API 参考。
